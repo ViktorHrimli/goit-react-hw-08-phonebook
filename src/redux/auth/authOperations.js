@@ -7,9 +7,9 @@ const setAuthToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// const clearAuthToken = () => {
-//   axios.defaults.headers.common.Authorization = '';
-// };
+const clearAuthToken = () => {
+  axios.defaults.headers.common.Authorization = '';
+};
 
 export const fethcRegisterUser = createAsyncThunk(
   'auth/register',
@@ -37,4 +37,14 @@ export const fetchLogInUser = createAsyncThunk(
   }
 );
 
-// tJJGefePSCk;
+export const fetchLogOutUser = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkApi) => {
+    try {
+      await axios.post('/users/logout');
+      clearAuthToken();
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

@@ -1,18 +1,25 @@
 import { Box, Links } from 'commonStyle/Common.styled';
-import { ConteierContacts, NameText } from './UserMenu.styled';
-import { Phonebook } from 'components/PhoneBook/PhoneBook';
-import { useSelector } from 'react-redux';
-import { Button } from '@mui/material';
-import { authUserSelector, authTokenSelector } from 'redux/auth/authSlice';
 import icons from 'commonStyle/Common.styled';
-import { useLocation } from 'react-router-dom';
+import { Phonebook } from 'components/PhoneBook/PhoneBook';
+import { ConteierContacts, NameText } from './UserMenu.styled';
+import { fetchLogOutUser } from 'redux/auth/authOperations';
+import { Button } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { authUserSelector, authTokenSelector } from 'redux/auth/authSlice';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function UserMenu() {
   const location = useLocation();
   const { name } = useSelector(authUserSelector);
   const token = useSelector(authTokenSelector);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { IconsExpand, IconsCheckBox, IconsStanby, IconsRecord } = icons;
 
+  const handleLogOutUser = () => {
+    dispatch(fetchLogOutUser());
+    navigate('/');
+  };
   return (
     <>
       <ConteierContacts>
@@ -32,6 +39,7 @@ function UserMenu() {
             color="primary"
             size="small"
             type="button"
+            onClick={handleLogOutUser}
           >
             Logout
           </Button>
