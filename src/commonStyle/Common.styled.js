@@ -1,5 +1,12 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
+import ModeStandbyIcon from '@mui/icons-material/ModeStandby';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+
+import { Field } from 'formik';
 import { theme } from 'Thema';
+import { Link } from 'react-router-dom';
 import {
   background,
   color,
@@ -54,3 +61,98 @@ export const GlobalStyled = createGlobalStyle`
     margin: 0;
   }
 `;
+
+export const Input = styled(Field)`
+  position: relative;
+  width: ${p => p.theme.space[8] + 30}px;
+  padding: ${p => p.theme.space[3]}px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border: ${p => p.theme.borders.bold};
+  color: white;
+  border-radius: ${p => p.theme.radii.md};
+  font-family: ${p => p.theme.fonts.heading};
+  font-size: ${p => p.theme.fontSizes.s};
+  margin-bottom: ${p => p.theme.space[3]}px;
+  transition: border 250ms, box-shadow 250ms;
+
+  :hover,
+  :focus {
+    border-bottom: ${p => p.theme.borders.normal} ${p => p.theme.colors.accent};
+    box-shadow: 2px 2px 3px #ffd700;
+  }
+`;
+
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  font-family: ${p => p.theme.fonts.monospace};
+  font-size: ${p => p.theme.fontSizes.m};
+  font-weight: ${p => p.theme.fontWeights.normal};
+  margin-top: ${p => p.theme.space[4]}px;
+`;
+
+export const Links = styled(Link)`
+  font-family: ${p => p.theme.fonts.monospace};
+  font-size: ${p => p.theme.fontSizes.sx};
+  line-height: ${p => p.theme.lineHeights.body};
+  color: ${p => p.theme.colors.white};
+`;
+
+export const Conteier = styled.div`
+  width: 380px;
+  height: 600px;
+  padding: ${p => p.theme.space[3]}px;
+  background-image: url('https://mobimg.b-cdn.net/v3/fetch/01/01f2c43831ed91f9b5e28e0892c1f612.jpeg?h=900&r=0.5');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+`;
+
+const IconsRecord = styled(FiberManualRecordIcon)`
+  width: 20px;
+  height: 20px;
+  color: #000;
+`;
+
+const IconsExpand = styled(ExpandCircleDownIcon)`
+  width: 20px;
+  height: 20px;
+  rotate: 90deg;
+  :hover {
+    cursor: pointer;
+    fill: black;
+    scale: 1.05;
+  }
+`;
+const IconsCheckBox = styled(CheckBoxOutlineBlankIcon)`
+  width: 20px;
+  height: 20px;
+  rotate: 90deg;
+  :hover {
+    cursor: pointer;
+    fill: black;
+    scale: 1.05;
+  }
+`;
+const IconsStanby = styled(ModeStandbyIcon)`
+  width: 20px;
+  height: 20px;
+  rotate: 90deg;
+  :hover {
+    cursor: pointer;
+    fill: black;
+    scale: 1.05;
+  }
+`;
+
+const icons = {
+  IconsCheckBox,
+  IconsExpand,
+  IconsRecord,
+  IconsStanby,
+};
+
+export default icons;

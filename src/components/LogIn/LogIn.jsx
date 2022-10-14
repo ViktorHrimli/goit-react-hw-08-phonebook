@@ -2,15 +2,9 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
-import { Box } from 'commonStyle/Common.styled';
+import { Box, Input, Label } from 'commonStyle/Common.styled';
 import { fetchLogInUser } from 'redux/auth/authOperations';
-import {
-  FormContact,
-  FormLabel,
-  Input,
-  FormButton,
-  Eror,
-} from './LogIn.styled';
+import { FormContact, Eror } from './LogIn.styled';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required(),
@@ -45,22 +39,22 @@ const LogInUser = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <FormLabel>
+            <Label>
               Email
               <Input type="email" name="email" />
               <ErrorMessage name="email" render={msg => <Eror>{msg}</Eror>} />
-            </FormLabel>
+            </Label>
 
-            <FormLabel>
+            <Label>
               Password
               <Input type="text" name="password" />
               <ErrorMessage
                 name="password"
                 render={msg => <Eror>{msg}</Eror>}
               />
-            </FormLabel>
+            </Label>
 
-            <FormButton type="submit">LogIn</FormButton>
+            <button type="submit">LogIn</button>
           </Box>
         </FormContact>
       </Formik>

@@ -1,8 +1,10 @@
-import { ItemList, ItemListButton, ItemListParagr } from './ListContact.styled';
+import { ItemList, ItemListParagr } from './ListContact.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContact } from 'redux/contacts/contactsSlice';
 import { fetchRemoveContact } from 'redux/contacts/operations';
 import { selectFilter } from 'redux/contacts/filterSlice';
+import Button from '@mui/material/Button';
+import { DeleteForever } from '@mui/icons-material';
 
 export const Renderlist = () => {
   const dispatch = useDispatch();
@@ -22,12 +24,16 @@ export const Renderlist = () => {
           <ItemListParagr>
             {item.name} {item.number}
           </ItemListParagr>
-          <ItemListButton
+          <Button
             type="button"
+            variant="contained"
+            size="small"
+            color="error"
+            endIcon={<DeleteForever />}
             onClick={() => handleClickRemove(item.id)}
           >
             Delete
-          </ItemListButton>
+          </Button>
         </ItemList>
       );
     })

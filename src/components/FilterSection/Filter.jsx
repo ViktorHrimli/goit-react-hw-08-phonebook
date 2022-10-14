@@ -1,4 +1,4 @@
-import { ListInput } from './Filter.styled';
+import { Input } from 'commonStyle/Common.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContact, selectFilter } from 'redux/contacts/filterSlice';
 import { createContext } from 'react';
@@ -12,5 +12,5 @@ export const Filter = () => {
     dispatch(filterContact(query.target.value.toLowerCase().trim()));
   };
 
-  return <ListInput type="text" value={valueFilter} onChange={handlechange} />;
+  return <input type="text" value={valueFilter} onChange={handlechange} />;
 };

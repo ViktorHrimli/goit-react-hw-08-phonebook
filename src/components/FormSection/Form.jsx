@@ -1,10 +1,11 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { Formik, ErrorMessage, Form } from 'formik';
+import Notiflix from 'notiflix';
 import * as Yup from 'yup';
 import 'yup-phone';
-import Notiflix from 'notiflix';
-import { useDispatch, useSelector } from 'react-redux';
-import { Formik, ErrorMessage } from 'formik';
 import { Box } from 'commonStyle/Common.styled';
-import { FormContact, FormLabel, Input, FormButton, Eror } from './Form.styled';
+import { Eror } from './Form.styled';
+import { Input, Label } from 'commonStyle/Common.styled';
 import { fetchAddContacts } from 'redux/contacts/operations';
 import { selectContact } from 'redux/contacts/contactsSlice';
 
@@ -38,28 +39,28 @@ export const Formes = () => {
       onSubmit={hendleSubmit}
       validationSchema={validationSchema}
     >
-      <FormContact>
+      <Form>
         <Box
           display="flex"
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
         >
-          <FormLabel>
+          <Label>
             Name
             <Input type="text" name="name" />
             <ErrorMessage name="name" render={msg => <Eror>{msg}</Eror>} />
-          </FormLabel>
+          </Label>
 
-          <FormLabel>
+          <Label>
             Telephone
             <Input type="tel" name="number" />
             <ErrorMessage name="number" render={msg => <Eror>{msg}</Eror>} />
-          </FormLabel>
+          </Label>
 
-          <FormButton type="submit">Add Contact</FormButton>
+          <button type="submit">Add Contact</button>
         </Box>
-      </FormContact>
+      </Form>
     </Formik>
   );
 };

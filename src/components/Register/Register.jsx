@@ -1,16 +1,12 @@
 import * as Yup from 'yup';
+import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
-import { Box } from 'commonStyle/Common.styled';
+import { Box, Input, Label, Links } from 'commonStyle/Common.styled';
 import { fethcRegisterUser } from 'redux/auth/authOperations';
-import {
-  FormContact,
-  FormLabel,
-  Input,
-  FormButton,
-  Eror,
-} from './Register.styled';
+import { FormContact, Eror, ConteierRegister } from './Register.styled';
+import icons from 'commonStyle/Common.styled';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required(),
@@ -24,6 +20,7 @@ const RegisterUser = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { IconsExpand, IconsCheckBox, IconsStanby, IconsRecord } = icons;
 
   const hendleSubmit = ({ name, email, password }, { resetForm }) => {
     dispatch(fethcRegisterUser({ name, email, password }));
@@ -32,8 +29,8 @@ const RegisterUser = () => {
   };
 
   return (
-    <Box>
-      <Link to={location.state?.from ?? '/'}>Back</Link>
+    <ConteierRegister>
+      <IconsRecord />
       <Formik
         initialValues={initialValue}
         onSubmit={hendleSubmit}
@@ -45,33 +42,54 @@ const RegisterUser = () => {
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
+            gridGap="15px"
           >
-            <FormLabel>
+            <Label>
               Name
               <Input type="text" name="name" />
               <ErrorMessage name="name" render={msg => <Eror>{msg}</Eror>} />
-            </FormLabel>
+            </Label>
 
-            <FormLabel>
+            <Label>
               Email
               <Input type="tel" name="email" />
               <ErrorMessage name="email" render={msg => <Eror>{msg}</Eror>} />
-            </FormLabel>
+            </Label>
 
-            <FormLabel>
+            <Label>
               Password
               <Input type="tel" name="password" />
               <ErrorMessage
                 name="password"
                 render={msg => <Eror>{msg}</Eror>}
               />
-            </FormLabel>
+            </Label>
 
-            <FormButton type="submit">Register</FormButton>
+            <Button variant="contained" color="primary" type="submit">
+              Register
+            </Button>
           </Box>
         </FormContact>
       </Formik>
-    </Box>
+      <Box
+        display="flex"
+        alignItems="flex-start"
+        gridGap="20px"
+        justifyContent="space-around"
+        mt="auto"
+        width="380px"
+      >
+        <Links to={location.state?.from ?? '/'}>
+          <IconsExpand />
+        </Links>
+        <Links to={location.state?.from ?? '/'}>
+          <IconsStanby />
+        </Links>
+        <Links to={location.state?.from ?? '/'}>
+          <IconsCheckBox />
+        </Links>
+      </Box>
+    </ConteierRegister>
   );
 };
 export default RegisterUser;
