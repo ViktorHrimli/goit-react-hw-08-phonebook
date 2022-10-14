@@ -80,15 +80,10 @@ export const Input = styled(Field)`
   :hover,
   :focus {
     box-shadow: 2px 2px 3px #ffd700;
+    ::placeholder {
+      color: transparent;
+    }
   }
-`;
-
-export const Label = styled.label`
-  display: flex;
-  flex-direction: column;
-  font-family: ${p => p.theme.fonts.monospace};
-  font-size: ${p => p.theme.fontSizes.m};
-  font-weight: ${p => p.theme.fontWeights.normal};
 `;
 
 export const Links = styled(Link)`

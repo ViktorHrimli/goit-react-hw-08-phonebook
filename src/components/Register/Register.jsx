@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
-import { Box, Input, Label, Links } from 'commonStyle/Common.styled';
+import { Box, Input, Links } from 'commonStyle/Common.styled';
 import { fethcRegisterUser } from 'redux/auth/authOperations';
 import { FormContact, Eror, ConteierRegister } from './Register.styled';
 import icons from 'commonStyle/Common.styled';
@@ -44,26 +44,14 @@ const RegisterUser = () => {
             justifyContent="center"
             gridGap="25px"
           >
-            <Label>
-              Name
-              <Input type="text" name="name" />
-              <ErrorMessage name="name" render={msg => <Eror>{msg}</Eror>} />
-            </Label>
+            <Input type="text" name="name" placeholder="Name" />
+            <ErrorMessage name="name" render={msg => <Eror>{msg}</Eror>} />
 
-            <Label>
-              Email
-              <Input type="tel" name="email" />
-              <ErrorMessage name="email" render={msg => <Eror>{msg}</Eror>} />
-            </Label>
+            <Input type="tel" name="email" placeholder="Email" />
+            <ErrorMessage name="email" render={msg => <Eror>{msg}</Eror>} />
 
-            <Label>
-              Password
-              <Input type="tel" name="password" />
-              <ErrorMessage
-                name="password"
-                render={msg => <Eror>{msg}</Eror>}
-              />
-            </Label>
+            <Input type="tel" name="password" placeholder="Password" />
+            <ErrorMessage name="password" render={msg => <Eror>{msg}</Eror>} />
 
             <Button variant="contained" color="primary" type="submit">
               Register

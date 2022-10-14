@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DeleteForever } from '@mui/icons-material';
 
 export const ContactList = styled.ul`
   display: flex;
@@ -11,33 +12,21 @@ export const ContactList = styled.ul`
 
 export const ItemList = styled.li`
   width: 100%;
+  color: white;
 `;
 
 export const ItemListParagr = styled.p`
   font-family: ${p => p.theme.fonts.monospace};
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.bold};
+  color: ${p => p.theme.colors.white};
 `;
 
-export const ItemListButton = styled.button`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: ${p => p.theme.fonts.monospace};
-  font-size: ${p => p.theme.fontSizes.m};
-  padding: ${p => p.theme.space[2]}px;
-  outline: none;
-  border: ${p => p.theme.borders.normal};
-  border-radius: ${p => p.theme.radii.md};
-  color: ${p => p.theme.colors.white};
-  background-color: ${p => p.theme.colors.accent};
-  transition: border 250ms, box-shadow 250ms, scale 250ms;
-
-  :hover,
-  :focus {
+export const ButtonIcon = styled(DeleteForever)`
+  color: white;
+  :hover {
     cursor: pointer;
-    border: ${p => p.theme.borders.normal} ${p => p.theme.colors.accent};
-    box-shadow: 2px 2px 3px #00bfff;
-    scale: 1.1;
+    scale: 1.05;
+    color: red;
   }
 `;

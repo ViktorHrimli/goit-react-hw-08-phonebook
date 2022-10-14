@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
-import { Box, Input, Label, Links } from 'commonStyle/Common.styled';
+import { Box, Input, Links } from 'commonStyle/Common.styled';
 import { fetchLogInUser } from 'redux/auth/authOperations';
 import { FormContact, Eror, ConteierLogin } from './LogIn.styled';
 import icons from 'commonStyle/Common.styled';
@@ -48,20 +48,11 @@ const LogInUser = () => {
             justifyContent="center"
             gridGap="25px"
           >
-            <Label>
-              Email
-              <Input type="email" name="email" />
-              <ErrorMessage name="email" render={msg => <Eror>{msg}</Eror>} />
-            </Label>
+            <Input type="email" name="email" placeholder="Email" />
+            <ErrorMessage name="email" render={msg => <Eror>{msg}</Eror>} />
 
-            <Label>
-              Password
-              <Input type="text" name="password" />
-              <ErrorMessage
-                name="password"
-                render={msg => <Eror>{msg}</Eror>}
-              />
-            </Label>
+            <Input type="text" name="password" placeholder="Password" />
+            <ErrorMessage name="password" render={msg => <Eror>{msg}</Eror>} />
 
             <Button variant="contained" color="primary" type="submit">
               Login

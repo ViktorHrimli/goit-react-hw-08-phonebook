@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 import 'yup-phone';
 import { Box } from 'commonStyle/Common.styled';
 import { Eror } from './Form.styled';
-import { Input, Label } from 'commonStyle/Common.styled';
+import { Input } from 'commonStyle/Common.styled';
 import { fetchAddContacts } from 'redux/contacts/operations';
 import { selectContact } from 'redux/contacts/contactsSlice';
 
@@ -48,17 +48,11 @@ export const Formes = () => {
           justifyContent="center"
           gridGap="25px"
         >
-          <Label>
-            Name
-            <Input type="text" name="name" />
-            <ErrorMessage name="name" render={msg => <Eror>{msg}</Eror>} />
-          </Label>
+          <Input type="text" name="name" placeholder="Name" />
+          <ErrorMessage name="name" render={msg => <Eror>{msg}</Eror>} />
 
-          <Label>
-            Telephone
-            <Input type="tel" name="number" />
-            <ErrorMessage name="number" render={msg => <Eror>{msg}</Eror>} />
-          </Label>
+          <Input type="tel" name="number" placeholder="Telephone" />
+          <ErrorMessage name="number" render={msg => <Eror>{msg}</Eror>} />
 
           <Button
             variant="contained"

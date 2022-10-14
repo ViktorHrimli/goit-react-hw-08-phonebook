@@ -1,10 +1,9 @@
-import { ItemList, ItemListParagr } from './ListContact.styled';
+import { Box } from 'commonStyle/Common.styled';
+import { ItemList, ItemListParagr, ButtonIcon } from './ListContact.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContact } from 'redux/contacts/contactsSlice';
 import { fetchRemoveContact } from 'redux/contacts/operations';
 import { selectFilter } from 'redux/contacts/filterSlice';
-import Button from '@mui/material/Button';
-import { DeleteForever } from '@mui/icons-material';
 
 export const Renderlist = () => {
   const dispatch = useDispatch();
@@ -21,19 +20,12 @@ export const Renderlist = () => {
     renderContact.map(item => {
       return (
         <ItemList key={item.id}>
-          <ItemListParagr>
-            {item.name} {item.number}
-          </ItemListParagr>
-          <Button
-            type="button"
-            variant="contained"
-            size="small"
-            color="error"
-            endIcon={<DeleteForever />}
-            onClick={() => handleClickRemove(item.id)}
-          >
-            Delete
-          </Button>
+          <Box display="flex" alignItems="center" gridGap="15px">
+            <ItemListParagr>
+              {item.name.toUpperCase()} {item.number}
+            </ItemListParagr>
+            <ButtonIcon onClick={() => handleClickRemove(item.id)}></ButtonIcon>
+          </Box>
         </ItemList>
       );
     })
