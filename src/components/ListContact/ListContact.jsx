@@ -20,11 +20,11 @@ export const Renderlist = () => {
       return (
         <ItemList key={item.id}>
           <ItemListParagr>
-            {item.name} {item.phone}
+            {item.name} {item.number}
           </ItemListParagr>
           <ItemListButton
             type="button"
-            onClick={() => handleClickRemove(Number(item.id))}
+            onClick={() => handleClickRemove(item.id)}
           >
             Delete
           </ItemListButton>

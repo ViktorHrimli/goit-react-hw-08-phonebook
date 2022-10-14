@@ -46,9 +46,7 @@ export const contactSlice = createSlice({
     [fetchRemoveContact.fulfilled]({ contact }, action) {
       contact.isLoading = false;
       contact.error = null;
-      contact.items = contact.items.filter(
-        item => item.id !== action.payload.id
-      );
+      contact.items = contact.items.filter(item => item.id !== action.payload);
     },
   },
 });
