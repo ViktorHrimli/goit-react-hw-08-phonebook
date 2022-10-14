@@ -18,17 +18,19 @@ export const Phonebook = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <h1>Phonebook</h1>
-        <Formes />
-        <h2>Contacts</h2>
-        <Filter />
-        {isLoading && !error && <b>Loading...</b>}
-        <ContactList>
-          <Renderlist />
-        </ContactList>
-      </Box>
-    </>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      mt="10px"
+      gridGap="10px"
+    >
+      <Formes />
+      <Filter />
+      {isLoading && !error && <b>Loading...</b>}
+      <ContactList>
+        <Renderlist />
+      </ContactList>
+    </Box>
   );
 };

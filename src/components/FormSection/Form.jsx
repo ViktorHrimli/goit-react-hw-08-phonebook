@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, ErrorMessage, Form } from 'formik';
 import Notiflix from 'notiflix';
 import * as Yup from 'yup';
+import { Button } from '@mui/material';
 import 'yup-phone';
 import { Box } from 'commonStyle/Common.styled';
 import { Eror } from './Form.styled';
@@ -45,6 +46,7 @@ export const Formes = () => {
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
+          gridGap="25px"
         >
           <Label>
             Name
@@ -58,7 +60,14 @@ export const Formes = () => {
             <ErrorMessage name="number" render={msg => <Eror>{msg}</Eror>} />
           </Label>
 
-          <button type="submit">Add Contact</button>
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            type="submit"
+          >
+            Add Contact
+          </Button>
         </Box>
       </Form>
     </Formik>

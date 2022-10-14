@@ -42,7 +42,7 @@ const RegisterUser = () => {
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
-            gridGap="15px"
+            gridGap="25px"
           >
             <Label>
               Name

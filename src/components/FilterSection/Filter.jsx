@@ -1,6 +1,7 @@
-import { Input } from 'commonStyle/Common.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContact, selectFilter } from 'redux/contacts/filterSlice';
+import { Formik } from 'formik';
+import { Input } from 'commonStyle/Common.styled';
 import { createContext } from 'react';
 export const UseContext = createContext();
 
@@ -12,5 +13,14 @@ export const Filter = () => {
     dispatch(filterContact(query.target.value.toLowerCase().trim()));
   };
 
-  return <input type="text" value={valueFilter} onChange={handlechange} />;
+  return (
+    <Formik>
+      <Input
+        type="text"
+        value={valueFilter}
+        onChange={handlechange}
+        placeholder="Filter Contacts"
+      />
+    </Formik>
+  );
 };
