@@ -20,10 +20,16 @@ export const Renderlist = () => {
     renderContact.map(item => {
       return (
         <ItemList key={item.id}>
-          <Box display="flex" alignItems="center" gridGap="15px">
-            <ItemListParagr>
-              {item.name.toUpperCase()} {item.number}
-            </ItemListParagr>
+          <Box
+            display="flex"
+            alignItems="center"
+            gridGap="15px"
+            justifyContent="flex-end"
+          >
+            <Box display="flex" alignItems="center" gridGap="15px">
+              <ItemListParagr>{item.name.toUpperCase()}</ItemListParagr>
+              <ItemListParagr>{item.number}</ItemListParagr>
+            </Box>
             <ButtonIcon onClick={() => handleClickRemove(item.id)}></ButtonIcon>
           </Box>
         </ItemList>

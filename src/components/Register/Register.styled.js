@@ -20,5 +20,6 @@ export const ConteierRegister = styled(Conteier)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('https://mobimg.b-cdn.net/v3/fetch/78/78e819e4bfdbb7015733d1bda7ddd502.jpeg?h=900&r=0.5');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url('https://mobimg.b-cdn.net/v3/fetch/78/78e819e4bfdbb7015733d1bda7ddd502.jpeg?h=900&r=0.5');
 `;

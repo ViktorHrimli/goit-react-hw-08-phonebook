@@ -1,3 +1,4 @@
+import { ThreeDots } from 'react-loader-spinner';
 import { Box } from 'commonStyle/Common.styled';
 import { Formes } from '../FormSection/Form';
 import { Filter } from '../FilterSection/Filter';
@@ -27,10 +28,22 @@ export const Phonebook = () => {
     >
       <Formes />
       <Filter />
-      {isLoading && !error && <b>Loading...</b>}
+
       <ContactList>
         <Renderlist />
       </ContactList>
+      {isLoading && !error && (
+        <ThreeDots
+          height="20"
+          width="20"
+          radius="9"
+          color="#ffd700"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
+      )}
     </Box>
   );
 };

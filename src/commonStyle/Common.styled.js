@@ -97,7 +97,8 @@ export const Conteier = styled.div`
   width: 380px;
   height: 600px;
   padding: ${p => p.theme.space[3]}px;
-  background-image: url('https://mobimg.b-cdn.net/v3/fetch/01/01f2c43831ed91f9b5e28e0892c1f612.jpeg?h=900&r=0.5');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url('https://mobimg.b-cdn.net/v3/fetch/01/01f2c43831ed91f9b5e28e0892c1f612.jpeg?h=900&r=0.5');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
