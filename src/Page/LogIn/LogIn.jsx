@@ -3,10 +3,9 @@ import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
-import { Box, Input, Links } from 'commonStyle/Common.styled';
+import { Box, Input, Links, icons } from 'commonStyle/Common.styled';
 import { fetchLogInUser } from 'redux/auth/authOperations';
 import { FormContact, Eror, ConteierLogin } from './LogIn.styled';
-import icons from 'commonStyle/Common.styled';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required(),
@@ -23,7 +22,7 @@ const LogInUser = () => {
 
   const hendleSubmit = ({ email, password }, { resetForm }) => {
     dispatch(fetchLogInUser({ email, password }));
-    navigate('contacts');
+    navigate('/contacts');
     resetForm();
   };
 

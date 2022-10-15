@@ -142,11 +142,9 @@ const IconsStanby = styled(ModeStandbyIcon)`
   }
 `;
 
-const icons = {
+export const icons = {
   IconsCheckBox,
   IconsExpand,
   IconsRecord,
   IconsStanby,
 };
-
-export default icons;

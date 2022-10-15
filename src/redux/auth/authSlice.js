@@ -37,3 +37,4 @@ const authSlice = createSlice({
 export const authSliceReducer = authSlice.reducer;
 export const authUserSelector = state => state.auth.user;
 export const authTokenSelector = state => state.auth.token;
+export const authIsLoginedSelector = state => state.auth.isLoggedIn;

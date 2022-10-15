@@ -1,5 +1,4 @@
-import { Box, Links } from 'commonStyle/Common.styled';
-import icons from 'commonStyle/Common.styled';
+import { Box, Links, icons } from 'commonStyle/Common.styled';
 import { Phonebook } from 'components/PhoneBook/PhoneBook';
 import { ConteierContacts, NameText } from './UserMenu.styled';
 import { fetchLogOutUser } from 'redux/auth/authOperations';
