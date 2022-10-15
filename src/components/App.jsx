@@ -17,6 +17,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchRefreshUser());
   }, [dispatch]);
+
   return (
     <Box display="flex" flexDirection="column" alignItems="center" py={[3]}>
       <Box display="flex" border="1px solid black" borderRadius="15px">
