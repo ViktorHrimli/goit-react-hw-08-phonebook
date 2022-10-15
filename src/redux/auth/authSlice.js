@@ -3,6 +3,7 @@ import {
   fethcRegisterUser,
   fetchLogInUser,
   fetchLogOutUser,
+  fetchRefreshUser,
 } from './authOperations';
 
 const initialState = {
@@ -30,6 +31,10 @@ const authSlice = createSlice({
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
+    },
+    [fetchRefreshUser.fulfilled](state, actions) {
+      state.user = actions.payload;
+      state.isLoggedIn = true;
     },
   },
 });
