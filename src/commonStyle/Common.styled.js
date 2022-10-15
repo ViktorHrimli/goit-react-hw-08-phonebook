@@ -93,6 +93,10 @@ export const Links = styled(Link)`
   color: ${p => p.theme.colors.white};
 `;
 
+export const LinksContacts = styled(Links)`
+  margin-right: auto;
+`;
+
 export const Conteier = styled.div`
   width: 380px;
   height: 600px;

@@ -1,4 +1,4 @@
-import { Box, Links, icons } from 'commonStyle/Common.styled';
+import { Box, Links, icons, LinksContacts } from 'commonStyle/Common.styled';
 import { useLocation } from 'react-router-dom';
 
 export function Navigation() {
@@ -13,9 +13,9 @@ export function Navigation() {
         alignItems="center"
         gridGap="15px"
       >
-        <Links to="/contacts" state={{ from: location }}>
+        <LinksContacts to="/contacts" state={{ from: location }}>
           Contacts
-        </Links>
+        </LinksContacts>
         <IconsRecord />
         <Links to="/register" state={{ from: location }}>
           Register
